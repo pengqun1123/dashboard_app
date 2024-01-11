@@ -1,15 +1,15 @@
 import 'package:dashboard_app/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class AnimationControllerPage extends StatefulWidget {
-  const AnimationControllerPage({super.key});
+class MenuHeader extends StatefulWidget {
+  const MenuHeader({super.key});
 
   @override
-  State<AnimationControllerPage> createState() =>
-      _AnimationControllerPageState();
+  State<MenuHeader> createState() =>
+      _MenuHeaderState();
 }
 
-class _AnimationControllerPageState extends State<AnimationControllerPage>
+class _MenuHeaderState extends State<MenuHeader>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -24,18 +24,11 @@ class _AnimationControllerPageState extends State<AnimationControllerPage>
       end: 1.2,
     ).animate(_controller);
 
-    // _controller.addListener(() {
-    //   setState(() {
-    //     _size = 100 + _controller.value * 100;
-    //   });
-    // });
+
     _controller.addStatusListener((status) {
       if(status == AnimationStatus.completed) {
         _controller.forward();
       }
-      // else if(status == AnimationStatus.reverse) {
-      //   _controller.forward();
-      // }
     });
     _controller.forward();
   }

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../resources/app_colors.dart';
 
+// Page routing navigation
+// 页面路由导航管理
 final appRouterConfig = GoRouter(
   routes: [
     GoRoute(

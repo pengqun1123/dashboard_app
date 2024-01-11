@@ -1,7 +1,7 @@
 import 'package:dashboard_app/bloc/chart_bloc.dart';
 import 'package:dashboard_app/bloc/chart_event.dart';
 import 'package:dashboard_app/bloc/chart_state.dart';
-import 'package:dashboard_app/pages/animation_controller_page.dart';
+import 'package:dashboard_app/widgets/menu_header.dart';
 import 'package:dashboard_app/widgets/charts/line_chart_widget1.dart';
 import 'package:dashboard_app/data/chart_info.dart';
 import 'package:dashboard_app/data/chart_samples.dart';
@@ -18,7 +18,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Register the Bloc into the widget tree
+    // 注册Bloc到小部件树中
     return BlocProvider(
+      // Create a specific Bloc, register it, and mount it on the Widget tree. Sub-Widgets can be obtained through context.
+      // 创建具体的Bloc，并进行注册，挂载到Widget树上，子Widget可以通过context获取
       create: (context) => ChartBloc(),
       child: Builder(builder: (context) {
         return Scaffold(
@@ -42,7 +46,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
-                  child: AnimationControllerPage(),
+                  child: MenuHeader(),
                 ),
                 ListTile(
                   leading: SvgPicture.asset(
@@ -173,6 +177,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          // Monitor the status changes of ChartBloc and update UI widgets
+          // 监听ChartBloc的状态变化更新UI小部件
           body: BlocBuilder<ChartBloc, ChartState>(
             builder: (context, state) {
               return Center(

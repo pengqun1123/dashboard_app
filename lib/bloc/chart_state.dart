@@ -1,3 +1,5 @@
+// Define the status of instrument switching
+// 定义仪表切换的状态
 enum ChartState {
   line_Chart1,
   line_Chart2,
